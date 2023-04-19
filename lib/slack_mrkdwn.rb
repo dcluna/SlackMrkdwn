@@ -87,7 +87,11 @@ class SlackMrkdwn < Redcarpet::Render::Base
 
   # links
   def link(link, _title, content)
-    "<#{link}|#{content}>"
+    if !content.empty?
+      "<#{link}|#{content}>"
+    else
+      "<#{link}>"
+    end
   end
 
   # list. Called when all list items have been consumed
